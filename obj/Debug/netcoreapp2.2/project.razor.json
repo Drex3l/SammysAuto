@@ -203,7 +203,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            The name of the action method.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
+            "Documentation": null,
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Action"
@@ -2953,6 +2953,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/ServiceTypes/Create.cshtml",
+      "TargetPath": "Views/ServiceTypes/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/ServiceTypes/Details.cshtml",
+      "TargetPath": "Views/ServiceTypes/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Home/Index.cshtml",
       "TargetPath": "Views/Home/Index.cshtml",
       "FileKind": "mvc"
@@ -2963,13 +2973,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/ServiceTypes/Index.cshtml",
+      "TargetPath": "Views/ServiceTypes/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/ServiceTypes/Delete.cshtml",
+      "TargetPath": "Views/ServiceTypes/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/ServiceTypes/Edit.cshtml",
+      "TargetPath": "Views/ServiceTypes/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_TableButtonPartial.cshtml",
+      "TargetPath": "Views/Shared/_TableButtonPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/Error.cshtml",
       "TargetPath": "Views/Shared/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_IndividualButtonPartial.cshtml",
+      "TargetPath": "Views/Shared/_IndividualButtonPartial.cshtml",
       "FileKind": "mvc"
     },
     {

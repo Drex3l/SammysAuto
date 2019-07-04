@@ -30,3 +30,10 @@
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/SammysAuto.dll
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/SammysAuto.pdb
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/SammysAuto.csproj.CopyComplete
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Create.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Delete.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Details.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Edit.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Index.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_IndividualButtonPartial.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_TableButtonPartial.g.cshtml.cs
