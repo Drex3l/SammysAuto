@@ -37,3 +37,15 @@
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/ServiceTypes/Index.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_IndividualButtonPartial.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_TableButtonPartial.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/Register.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/_ValidationScriptsPartial.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/Login.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/ExternalLogin.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/LoginWith2fa.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/Lockout.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/SignedOut.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Users/Create.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Users/Delete.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Users/Details.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Users/Edit.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Users/Index.g.cshtml.cs

@@ -203,7 +203,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the action method.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Action"
@@ -2953,6 +2953,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/ServiceTypes/Create.cshtml",
       "TargetPath": "Views/ServiceTypes/Create.cshtml",
       "FileKind": "mvc"
@@ -2998,8 +3003,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Account/LoginWith2fa.cshtml",
+      "TargetPath": "Views/Account/LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/Error.cshtml",
       "TargetPath": "Views/Shared/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Register.cshtml",
+      "TargetPath": "Views/Account/Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/ExternalLogin.cshtml",
+      "TargetPath": "Views/Account/ExternalLogin.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3013,8 +3033,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Account/SignedOut.cshtml",
+      "TargetPath": "Views/Account/SignedOut.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_LoginPartial.cshtml",
       "TargetPath": "Views/Shared/_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Login.cshtml",
+      "TargetPath": "Views/Account/Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3025,6 +3055,11 @@
     {
       "FilePath": "Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Lockout.cshtml",
+      "TargetPath": "Views/Account/Lockout.cshtml",
       "FileKind": "mvc"
     }
   ]
