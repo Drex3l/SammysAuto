@@ -2953,6 +2953,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Users/Details.cshtml",
+      "TargetPath": "Views/Users/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views/_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -2978,13 +2983,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Cars/Delete.cshtml",
+      "TargetPath": "Views/Cars/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/ServiceTypes/Index.cshtml",
       "TargetPath": "Views/ServiceTypes/Index.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Cars/Index.cshtml",
+      "TargetPath": "Views/Cars/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Users/Edit.cshtml",
+      "TargetPath": "Views/Users/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Users/Delete.cshtml",
+      "TargetPath": "Views/Users/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/ServiceTypes/Delete.cshtml",
       "TargetPath": "Views/ServiceTypes/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Cars/Details.cshtml",
+      "TargetPath": "Views/Cars/Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3005,6 +3035,21 @@
     {
       "FilePath": "Views/Account/LoginWith2fa.cshtml",
       "TargetPath": "Views/Account/LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Cars/Edit.cshtml",
+      "TargetPath": "Views/Cars/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Cars/Create.cshtml",
+      "TargetPath": "Views/Cars/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Users/Create.cshtml",
+      "TargetPath": "Views/Users/Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3045,6 +3090,11 @@
     {
       "FilePath": "Views/Account/Login.cshtml",
       "TargetPath": "Views/Account/Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Users/Index.cshtml",
+      "TargetPath": "Views/Users/Index.cshtml",
       "FileKind": "mvc"
     },
     {

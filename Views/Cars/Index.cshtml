@@ -1,0 +1,119 @@
+@model SammysAuto.ViewModel.CarAndCustomerViewModel
+@using SammysAuto.Utility;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Car Record for Customer</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <p>
+            <a asp-action="Create" asp-route-userId="@Model.UserObj.Id" class="btn btn-primary">Add New</a>
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.FirstName" class="control-label"></label>
+            </div>
+            <div class="col-sm-8">
+                <input asp-for="UserObj.FirstName" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.LastName" class="control-label"></label>
+            </div>
+            <div class="col-sm-8">
+                <input asp-for="UserObj.LastName" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.PhoneNumber" class="control-label"></label>
+            </div>
+            <div class="col-sm-8">
+                <input asp-for="UserObj.PhoneNumber" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.Email" class="control-label"></label>
+            </div>
+            <div class="col-sm-8">
+                <input asp-for="UserObj.Email" disabled class="form-control" />
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+@if (Model.Cars.Count() == 0)
+{
+    <div class="text-primary form-bord"> No Car Found! Please <b>add Car</b>...</div>
+}
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().VIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Style)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Color)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cars) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Style)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @{ var btn = User.IsInRole(SD.CustomerEndUser) ? new { type = "primary", icon = "wrench", label = "Service History"} : new { type = "success", icon = "plus-sign", label = "New Service" };
+                <a class="btn btn-sm btn-@btn.type" asp-controller="Services" asp-action="Index" asp-route-CarId="@item.Id">
+                    <span class="glyphicon glyphicon-@btn.icon"></span>@btn.label
+                </a>
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}

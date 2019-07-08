@@ -48,7 +48,7 @@ namespace SammysAuto.Controllers
         [TempData]
         public string ErrorMessage { get; set; }
 
-         [HttpGet]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
@@ -79,11 +79,8 @@ namespace SammysAuto.Controllers
                     }
                     else
                     {
-                    //     return RedirectToAction("Index", "Cars", new { userId = user.Id });
+                        return RedirectToAction("Index", "Cars"  , new { userId = user.Id });
                     }
-
-                    _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
                 }
             }
              // If we got this far, something failed, redisplay form
@@ -231,7 +228,7 @@ namespace SammysAuto.Controllers
                     {
                         var userDetails = await _userManager.FindByEmailAsync(model.Email);
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        // return RedirectToAction("Index", "Cars", new { userId = userDetails.Id });
+                        return RedirectToAction("Index", "Cars", new { userId = userDetails.Id });
                     }
                 }
             
