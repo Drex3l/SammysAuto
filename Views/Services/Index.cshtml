@@ -1,0 +1,13 @@
+@model SammysAuto.ViewModel.CarAndServicesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{await Html.RenderPartialAsync("_CarDetailsInService");}
+<br/>
+<h4>Service Record</h4>
+<div class="row form-border">
+    @{await Html.RenderPartialAsync("_DisplayPastServices", Model);}
+    <input type="button" class="btn btn-sm btn-primary" value="Ptint" onclick="window.print();" />
+    <a asp-action="Index" asp-controller="Cars" asp-route-userId="@Model.UserId" class="btn btn-sm btn-success">Back to List</a>
+</div>

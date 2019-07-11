@@ -2,31 +2,37 @@
 
 <td style="width:150px;">
     <div class="btn-group" role="group">
-        @Html.PartialAsync("_IndividualButtonPartial",
+        @{await Html.RenderPartialAsync("_IndividualButtonPartial",
         new IndividualButtonPartial {
             Action = "Edit",
             ButtonType = "btn-primary",
             Glyph = "pencil",
             Text = "Edit",
-            ServiceId = Model.ServiceId
-        })
+            ServiceId = Model.ServiceId,
+            CustomerId=Model.CustomerId,
+            CarId=Model.CarId
+        });}
 
-        @Html.PartialAsync("_IndividualButtonPartial",
+        @{await Html.RenderPartialAsync("_IndividualButtonPartial",
         new IndividualButtonPartial {
             Action = "Details",
             ButtonType = "btn-success",
             Glyph = "list",
             Text = "Details Button",
-            ServiceId = Model.ServiceId
-        })
+            ServiceId = Model.ServiceId,
+            CustomerId = Model.CustomerId,
+            CarId = Model.CarId
+        });}
 
-        @Html.PartialAsync("_IndividualButtonPartial",
+        @{await Html.RenderPartialAsync("_IndividualButtonPartial",
         new IndividualButtonPartial {
             Action = "Delete",
             ButtonType = "btn-danger",
             Glyph = "trash",
             Text = "Delete Button",
-            ServiceId = Model.ServiceId
-        })
+            ServiceId = Model.ServiceId,
+            CustomerId = Model.CustomerId,
+            CarId = Model.CarId
+        });}
     </div>
 </td>

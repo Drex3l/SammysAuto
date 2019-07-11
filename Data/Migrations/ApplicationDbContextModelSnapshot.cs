@@ -223,6 +223,33 @@ namespace SammysAuto.Data.Migrations
                     b.ToTable("Cars");
                 });
 
+            modelBuilder.Entity("SammysAuto.Models.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId");
+
+                    b.Property<DateTime>("DateAdded");
+
+                    b.Property<string>("Details");
+
+                    b.Property<double>("Miles");
+
+                    b.Property<double>("Price");
+
+                    b.Property<int>("ServiceTypeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("ServiceTypeId");
+
+                    b.ToTable("Services");
+                });
+
             modelBuilder.Entity("SammysAuto.Models.ServiceType", b =>
                 {
                     b.Property<int>("Id")
@@ -287,6 +314,19 @@ namespace SammysAuto.Data.Migrations
                     b.HasOne("SammysAuto.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("SammysAuto.Models.Service", b =>
+                {
+                    b.HasOne("SammysAuto.Models.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("SammysAuto.Models.ServiceType", "ServiceType")
+                        .WithMany()
+                        .HasForeignKey("ServiceTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

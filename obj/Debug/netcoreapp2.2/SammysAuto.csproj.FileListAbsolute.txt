@@ -54,3 +54,10 @@
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Cars/Details.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Cars/Edit.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Cars/Index.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Create.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Delete.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Details.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Edit.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Index.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_CarDetailsInService.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_DisplayPastServices.g.cshtml.cs

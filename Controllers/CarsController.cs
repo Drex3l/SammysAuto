@@ -30,7 +30,7 @@ namespace SammysAuto.Controllers
             var model = new CarAndCustomerViewModel 
             {
                 Cars = _context.Cars.Where(c => c.UserId == userId),
-                UserObj = _context.Users.FirstOrDefault(u => u.Id == userId)
+                UserObj = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId)
             };
             return View(model);
         }

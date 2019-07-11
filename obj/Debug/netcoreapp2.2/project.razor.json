@@ -2973,6 +2973,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Services/Edit.cshtml",
+      "TargetPath": "Views/Services/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Home/Index.cshtml",
       "TargetPath": "Views/Home/Index.cshtml",
       "FileKind": "mvc"
@@ -3013,6 +3018,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Services/Create.cshtml",
+      "TargetPath": "Views/Services/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Services/Delete.cshtml",
+      "TargetPath": "Views/Services/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Cars/Details.cshtml",
       "TargetPath": "Views/Cars/Details.cshtml",
       "FileKind": "mvc"
@@ -3023,8 +3038,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Shared/_DisplayPastServices.cshtml",
+      "TargetPath": "Views/Shared/_DisplayPastServices.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/ServiceTypes/Edit.cshtml",
       "TargetPath": "Views/ServiceTypes/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_CarDetailsInService.cshtml",
+      "TargetPath": "Views/Shared/_CarDetailsInService.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3035,6 +3060,11 @@
     {
       "FilePath": "Views/Account/LoginWith2fa.cshtml",
       "TargetPath": "Views/Account/LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Services/Details.cshtml",
+      "TargetPath": "Views/Services/Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3060,6 +3090,11 @@
     {
       "FilePath": "Views/Account/Register.cshtml",
       "TargetPath": "Views/Account/Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Services/Index.cshtml",
+      "TargetPath": "Views/Services/Index.cshtml",
       "FileKind": "mvc"
     },
     {

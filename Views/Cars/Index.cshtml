@@ -101,16 +101,14 @@ else
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @{ var btn = User.IsInRole(SD.CustomerEndUser) ? new { type = "primary", icon = "wrench", label = "Service History"} : new { type = "success", icon = "plus-sign", label = "New Service" };
-                <a class="btn btn-sm btn-@btn.type" asp-controller="Services" asp-action="Index" asp-route-CarId="@item.Id">
+                @{ var btn = User.IsInRole(SD.CustomerEndUser) ? new { type = "primary", icon = "wrench", label = "Service History", action = "Index"} : new { type = "success", icon = "plus-sign", label = "New Service" , action = "Create"};
+                <a class="btn btn-sm btn-@btn.type" asp-controller="Services" asp-action="@btn.action" asp-route-CarId="@item.Id">
                     <span class="glyphicon glyphicon-@btn.icon"></span>@btn.label
                 </a>
                 }
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @{await Html.RenderPartialAsync("_TableButtonPartial", new IndividualButtonPartial { CarId=item.Id});}
             </td>
         </tr>
 }
