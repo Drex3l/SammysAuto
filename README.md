@@ -13,8 +13,8 @@ System used by a typical garage to track **services** provided to **cars**.
 ### Project Notable Entities
 * Service Type
 * User
- * Admin
- * Customer
+	* Admin
+	* Customer
 * Car
 * Service
 
@@ -27,12 +27,12 @@ dotnet new mvc --auth Individual --use-local-db -o SammysAuto
 Adding user authentication at project creation puts a couple of new files to picture
 
 * **Data/**
- * Migrations/
- <ul>
- * 00000000000000_CreateIdentitySchema.cs
- * 00000000000000_CreateIdentitySchema.Designer.cs
- * ApplicationDbContextModelSnapshot.cs
- </ul>
+	* Migrations/
+	 <ul>
+	 * 00000000000000_CreateIdentitySchema.cs
+	 * 00000000000000_CreateIdentitySchema.Designer.cs
+	 * ApplicationDbContextModelSnapshot.cs
+	 </ul>
  * ApplicationDbContext.cs
  
 ### _Notable_ New Files, and Changes to old files
@@ -87,7 +87,7 @@ If any of these is missing, add with the ```dotnet add package``` command
 Now, the next step is updating database with the ```dotnet ef database update``` command.
 ## Preparation
 First, we build a button template we gonna reuse throughout the project.  
-
+### Icon Button Template
 ```bash
 vim Models/IndividualButtonPartial.cs
 ```
@@ -185,50 +185,6 @@ vim Views/Shared/_TableButtonPartial.cshtml
     </div>
 </td>
 ```
-
-## Functionality
-### Service Tpye
-
-We first add entity to the **Models**:
-
-```bash
-vim Models/ServiceType.cs
-```
-```cs
-namespace SammysAuto.Models
-{
-    public class ServiceType
-    {
-        public int Id { get; set;}
-        [Required]
-        public string Name { get; set;}
-    }
-}
-```
-
-We then add a entity property to the **database context**.  
-
-```bash
-vim Data/ApplicationDbContext.cs
-```
-```cs
-public DbSet<ServiceType> ServiceTypes { get; set; }
-```
-We then migrate entity to database  
-
-```bash
- dotnet ef migrations add AddServiceTypeToDB
- dotnet ef database update
-```
-
-Next, we scaffold entity **Controller** and  **Views** into existance.  
-
-
-```bash
-dotnet aspnet-codegenerator controller -m ServiceType -name ServiceTypesController -dc ApplicationDbContext --relativeFolderPath Controllers --referenceScriptLibraries --useDefaultLayout
-
-```
-
 ### User Accounts
 Let's add ability to send/receive emails 
 
@@ -280,15 +236,14 @@ namespace SammysAuto.Utility
     }
 }
 ```
-Now, we run the Identity scaffolder, to pave the way to work with user account fuctionality;  
+Next, using the Entity Framework, we scaffold User Account related templates into existence;  
+
 
 ```bash
 dotnet aspnet-codegenerator identity -u ApplicationUser -fi "Account.Register;Account.Login;Account.Logout" -f
 
 ```
-
-#### Model
-We add custom fields to the **Identity** framework database by means of the Application User class;  
+We then add custom fields to the user account database table provided by the **Identity** framework, by means of the **Application User** class;  
 
 ```bash
 vim Area/Identity/Data/ApplicationUser.cs
@@ -322,11 +277,9 @@ protected override void OnModelCreating(ModelBuilder builder)
  ...and perform a database Migrate   
 
 ```bash
-dotnet ef migrations add addUserProperties --context ApplicationDbContext
+dotnet ef migrations add addUserProperties
 dotnet ef database update --context ApplicationDbContext
 ```
-
-#### Controller
 The first step is creating the relevant properties, and initializing them in the constructor.  
 
 ```cs
@@ -506,13 +459,108 @@ We also update file ```Views/Shared/_LoginPartial.cshtml``` to being with the fo
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 ```
-#### User Account CRUD Operations
-Adding relevant controller + views...  
+
+Give **Admin** ability to add other users, like customers, by adding relevant controller + views...  
 
 ```bash
 dotnet aspnet-codegenerator controller -m SammysAuto.Models.ApplicationUser -name UsersController -dc ApplicationDbContext --relativeFolderPath Controllers --referenceScriptLibraries --useDefaultLayout
 
 ```
+Add the following line at class level, on the ```Controllers/UsersController.cs``` file.  
+
+```cs
+[Authorize(Roles = SD.AdminEndUser)]
+```
+Modify the ```DELETE POST``` action to simulate *'cascade on delete'* database event;   
+
+```cs
+// POST: Users/Delete/5
+[HttpPost, ActionName("Delete")]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> DeleteConfirmed(string id)
+{
+	var userInDb = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+	var cars = _context.Cars.Where(x => x.UserId == userInDb.Id);
+	List<Car> listCar = cars.ToList();
+
+	foreach (var car in listCar)
+	{
+		var servcies = _context.Services.Where(x => x.CarId == car.Id);
+		_context.Services.RemoveRange(servcies);
+    }
+
+	_context.Cars.RemoveRange(cars);
+	_context.Users.Remove(userInDb);
+	await _context.SaveChangesAsync();
+
+	return RedirectToAction(nameof(Index));
+}
+
+```
+### Authorization and Page Navigation
+Tweak the page navigation ```<ul>``` inside the ```<nav>``` element of the ````Views/Shared/_Layout.cshtml``` page, so it resembles the following;  
+
+```cs
+<ul class="navbar-nav flex-grow-1">
+	@if (User.IsInRole(SD.AdminEndUser))
+	{
+		<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a></li>
+		<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="ServiceTypes" asp-action="Index">Service Types</a></li>
+	}
+		<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a></li>
+		<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+</ul>                    
+```
+## Functionality
+### Service Tpye
+
+We first add entity to the **Models**:
+
+```bash
+vim Models/ServiceType.cs
+```
+```cs
+namespace SammysAuto.Models
+{
+    public class ServiceType
+    {
+        public int Id { get; set;}
+        [Required]
+        public string Name { get; set;}
+    }
+}
+```
+
+We then add a entity property to the **database context**.  
+
+```bash
+vim Data/ApplicationDbContext.cs
+```
+```cs
+public DbSet<ServiceType> ServiceTypes { get; set; }
+```
+We then migrate entity to database  
+
+```bash
+ dotnet ef migrations add AddServiceTypeToDB
+ dotnet ef database update
+```
+
+Next, we scaffold entity **Controller** and  **Views** into existance.  
+
+
+```bash
+dotnet aspnet-codegenerator controller -m ServiceType -name ServiceTypesController -dc ApplicationDbContext --relativeFolderPath Controllers --referenceScriptLibraries --useDefaultLayout
+
+```
+
+Make access to this controller exclusive to **admin**, by adding the following line to it, at _class level_.  
+
+```cs
+[Authorize(Roles = SD.AdminEndUser)]
+```
+
+
 ### Cars
 We first take a look at the _back-end_ layer.
 #### Model
@@ -578,6 +626,7 @@ namespace SammysAuto.ViewModel
 }
 ```
 #### Controller
+Like most controllers, this one is also gonna implement authorization, by placing the ```[Authorize]``` construct at class level.
 
 ```bash
 dotnet aspnet-codegenerator controller -m SammysAuto.Models.Car -name CarsController -dc ApplicationDbContext --relativeFolderPath Controllers --referenceScriptLibraries --useDefaultLayout
@@ -661,7 +710,10 @@ First step is recreating the index view that it looks as the following;
 <div class="row">
     <div class="col-sm-6">
         <p>
+            @if (Model.UserObj != null)
+            {
             <a asp-action="Create" asp-route-userId="@Model.UserObj.Id" class="btn btn-primary">Add New</a>
+            }
         </p>
     </div>
     <div class="col-sm-6">
@@ -857,6 +909,7 @@ Step Two, we modify the **index**, and **create** actions to the following:
 
 ```cs
 // GET: Services
+[Authorize]
 public async Task<IActionResult> Index(int carId,int? records = null)
 {
 	var car =   await _context.Cars.FirstOrDefaultAsync(c => c.Id == carId);
@@ -876,6 +929,7 @@ public async Task<IActionResult> Index(int carId,int? records = null)
 }
         
 // GET: Services/Create
+[Authorize(Roles = SD.AdminEndUser)]
 public Task<IActionResult> Create(int carId)
 {
 	return this.Index(carId,5);
@@ -884,6 +938,7 @@ public Task<IActionResult> Create(int carId)
 // POST: Services/Create
 // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+[Authorize(Roles = SD.AdminEndUser)]
 [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Create(CarAndServicesViewModel model)
@@ -912,7 +967,7 @@ public async Task<IActionResult> Create(CarAndServicesViewModel model)
 	return View(newModel);
 }
 ```
-We modify the definition of the ```service``` object in the ```DELETE GET``` action, to the following;   
+We also add ```[Authorize(Roles = SD.AdminEndUser)]```, on the ```DELETE GET``` action, and modify the definition of the ```service``` object, to the following;   
 
 ```cs
 var service = await _context.Services.Include(s => s.Car).Include(s => s.ServiceType).FirstOrDefaultAsync(m => m.Id == id);
@@ -922,6 +977,7 @@ We modify the ```DELETE POST``` to be as follows;
 
 ```cs
 // POST: Services/Delete/5
+[Authorize(Roles = SD.AdminEndUser)]
 [HttpPost, ActionName("Delete")]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> DeleteConfirmed(Service model)
@@ -1038,7 +1094,7 @@ vim Views/Shared/_DisplayPastServices.cshtml
                     @Html.DisplayFor(m => item.ServiceType.Name)
                 </td>
                 <td>
-                    @if (item.DateAdded.Date == DateTime.Now.Date)
+                    @if (item.DateAdded.Date == DateTime.Now.Date  && User.IsInRole(SD.AdminEndUser))
                     {
                         await Html.RenderPartialAsync("_IndividualButtonPartial", new IndividualButtonPartial
                         {

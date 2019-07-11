@@ -7,7 +7,14 @@
 <br/>
 <h4>Service Record</h4>
 <div class="row form-border">
-    @{await Html.RenderPartialAsync("_DisplayPastServices", Model);}
-    <input type="button" class="btn btn-sm btn-primary" value="Ptint" onclick="window.print();" />
+    @if (Model.PastServicesObj.Count() == 0)
+    {
+        <div class="col-sm-12 text-primary" style="text-align:center">Records Empty</div>
+    }else
+    {
+        await Html.RenderPartialAsync("_DisplayPastServices", Model);
+        <input type="button" class="btn btn-sm btn-primary" value="Ptint" onclick="window.print();" />
+    }
+  
     <a asp-action="Index" asp-controller="Cars" asp-route-userId="@Model.UserId" class="btn btn-sm btn-success">Back to List</a>
 </div>

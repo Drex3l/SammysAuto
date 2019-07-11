@@ -3003,6 +3003,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Manage/_ViewImports.cshtml",
+      "TargetPath": "Views/Manage/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Users/Edit.cshtml",
       "TargetPath": "Views/Users/Edit.cshtml",
       "FileKind": "mvc"
@@ -3013,6 +3018,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Manage/_Layout.cshtml",
+      "TargetPath": "Views/Manage/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/ServiceTypes/Delete.cshtml",
       "TargetPath": "Views/ServiceTypes/Delete.cshtml",
       "FileKind": "mvc"
@@ -3020,6 +3030,11 @@
     {
       "FilePath": "Views/Services/Create.cshtml",
       "TargetPath": "Views/Services/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Manage/_ManageNav.cshtml",
+      "TargetPath": "Views/Manage/_ManageNav.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3045,6 +3060,11 @@
     {
       "FilePath": "Views/ServiceTypes/Edit.cshtml",
       "TargetPath": "Views/ServiceTypes/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/AccessDenied.cshtml",
+      "TargetPath": "Views/Account/AccessDenied.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3078,6 +3098,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Manage/_StatusMessage.cshtml",
+      "TargetPath": "Views/Manage/_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Manage/SetPassword.cshtml",
+      "TargetPath": "Views/Manage/SetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Users/Create.cshtml",
       "TargetPath": "Views/Users/Create.cshtml",
       "FileKind": "mvc"
@@ -3093,6 +3123,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Manage/ExternalLogins.cshtml",
+      "TargetPath": "Views/Manage/ExternalLogins.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Services/Index.cshtml",
       "TargetPath": "Views/Services/Index.cshtml",
       "FileKind": "mvc"
@@ -3100,6 +3135,11 @@
     {
       "FilePath": "Views/Account/ExternalLogin.cshtml",
       "TargetPath": "Views/Account/ExternalLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Manage/ChangePassword.cshtml",
+      "TargetPath": "Views/Manage/ChangePassword.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3118,6 +3158,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Manage/Index.cshtml",
+      "TargetPath": "Views/Manage/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_LoginPartial.cshtml",
       "TargetPath": "Views/Shared/_LoginPartial.cshtml",
       "FileKind": "mvc"
@@ -3125,6 +3170,11 @@
     {
       "FilePath": "Views/Account/Login.cshtml",
       "TargetPath": "Views/Account/Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Manage/PersonalData.cshtml",
+      "TargetPath": "Views/Manage/PersonalData.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SammysAuto.Data;
 using SammysAuto.Models;
+using SammysAuto.Utility;
 using SammysAuto.ViewModel;
 
 namespace SammysAuto.Controllers
@@ -21,6 +23,7 @@ namespace SammysAuto.Controllers
         }
 
         // GET: Services
+        [Authorize]
         public async Task<IActionResult> Index(int carId,int? records = null)
         {
             var car =   await _context.Cars.FirstOrDefaultAsync(c => c.Id == carId);
@@ -66,6 +69,7 @@ namespace SammysAuto.Controllers
         }
 
         // GET: Services/Create
+        [Authorize(Roles = SD.AdminEndUser)]
         public Task<IActionResult> Create(int carId)
         {
             return this.Index(carId,5);
@@ -74,6 +78,7 @@ namespace SammysAuto.Controllers
         // POST: Services/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = SD.AdminEndUser)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CarAndServicesViewModel viewModel)
@@ -154,6 +159,7 @@ namespace SammysAuto.Controllers
         }
 
         // GET: Services/Delete/5
+        [Authorize(Roles = SD.AdminEndUser)]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -171,6 +177,7 @@ namespace SammysAuto.Controllers
         }
 
         // POST: Services/Delete/5
+        [Authorize(Roles = SD.AdminEndUser)]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Service model)

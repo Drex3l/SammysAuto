@@ -325,6 +325,12 @@ namespace SammysAuto.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
         }
+        
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
 
         private void AddErrors(IdentityResult result)

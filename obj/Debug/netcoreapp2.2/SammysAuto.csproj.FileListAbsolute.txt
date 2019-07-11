@@ -61,3 +61,13 @@
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Services/Index.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_CarDetailsInService.g.cshtml.cs
 /var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_DisplayPastServices.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Account/AccessDenied.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/Index.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/_Layout.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/_ManageNav.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/_StatusMessage.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/ExternalLogins.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/_ViewImports.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/ChangePassword.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/PersonalData.g.cshtml.cs
+/var/www/html/dotnet/SammysAuto/obj/Debug/netcoreapp2.2/Razor/Views/Manage/SetPassword.g.cshtml.cs

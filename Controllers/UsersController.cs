@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SammysAuto.Data;
 using SammysAuto.Models;
+using SammysAuto.Utility;
 
 namespace SammysAuto.Controllers
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -167,9 +170,23 @@ namespace SammysAuto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var applicationUser = await _context.Users.FindAsync(id);
-            _context.Users.Remove(applicationUser);
+            var userInDb = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+
+            var cars = _context.Cars.Where(x => x.UserId == userInDb.Id);
+
+            List<Car> listCar = cars.ToList();
+
+            foreach (var car in listCar)
+            {
+                var servcies = _context.Services.Where(x => x.CarId == car.Id);
+
+                _context.Services.RemoveRange(servcies);
+            }
+
+            _context.Cars.RemoveRange(cars);
+            _context.Users.Remove(userInDb);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
